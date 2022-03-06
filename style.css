@@ -1,11 +1,14 @@
 .grid-square {
     width: 40px;
     height: 40px;
-    border: solid 1px;
+}
+
+.on-hover:hover {
+    background-color: black;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 680px;
+    width: 640px;
 }
