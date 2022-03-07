@@ -5,20 +5,16 @@ function createDivs() {
     for (let i = 0; i < 256; i++) {
         const div = document.createElement('div');
         div.classList.add('grid-square');
+        div.classList.add('unselectable')
 
         container.appendChild(div);
     }
 }
 
-let isDown = 0;
+document.body.onmousedown = () => isDown = true;
+document.body.onmouseup = () => isDown = false;
 
-document.body.onmousedown = function(){ 
-    ++isDown;
-}
-document.body.onmouseup = function(){ 
-    isDown = 0;
-}
-
+let isDown = false;
 
 container.addEventListener('mousedown', changeColor);
 container.addEventListener('mouseover', changeColor);
