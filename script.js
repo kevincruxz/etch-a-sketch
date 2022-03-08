@@ -1,10 +1,11 @@
 const container = document.querySelector('.container');
 const clear = document.querySelector('.clear-button'); 
 const sizeRange = document.querySelector('.range-sel')
-let squareColor = "#000000", gridColor = "FFFFFF", size = 16;
+let squareColor = "#000000", gridColor = "#FFFFFF", size = 16, eraser = false;
 createDivs();
 initialColor();
-const squares = document.querySelectorAll('.grid-square')
+initialEraser();
+let squares = document.querySelectorAll('.grid-square')
 
 function createDivs() {
     let width = 38 / size;
@@ -16,6 +17,19 @@ function createDivs() {
 
         container.appendChild(div);
     }
+}
+
+function initialEraser() {
+    const eraserButton = document.querySelector('.eraser');
+    eraserButton.addEventListener('click', function(e) {
+        if (eraser === true) {
+            eraser = false;
+            eraserButton.textContent = "Eraser"
+        } else {
+            eraser = true;
+            eraserButton.textContent = "Return to paint"
+        }
+    });
 }
 
 function initialColor() {
@@ -56,27 +70,39 @@ container.addEventListener('mouseover', changeColor);
 function changeColor(e) {
     if (!isDown && e.type === 'mouseover') return;
 
-    e.target.style.background = squareColor;
-    container.style.background = gridColor;
+    if (eraser === true) {
+        e.target.style.background = "";
+        container.style.background = gridColor;
+    } else {
+        e.target.style.background = squareColor;
+        container.style.background = gridColor;
+    }
 }
 
-clear.addEventListener('click', () => {
+clear.addEventListener('click', clearGrid);
+
+function clearGrid() {
     squares.forEach((square) => {
         if (square.style.background){
             square.style.background = "";
         }
     })
-})
+}
 
-sizeRange.addEventListener('change', buildNew) 
+sizeRange.addEventListener('input', buildNew) 
 
 function buildNew(e) {
-    let newSize = Math.round(e.target.value);
-    let difSizes = newSize - size;
+    clearGrid()
+    let newSizeString = e.target.value;
+    let newSize = parseInt(newSizeString, 10);
+    let difSizes = newSize**2 - size**2;
+    size = newSize;
+
     if (difSizes < 0) {
+        let child = container.lastElementChild;
         while (difSizes < 0) {
-            let child = container.lastElementChild;
             container.removeChild(child);
+            child = container.lastElementChild;
             difSizes++;
         }
     } else {
@@ -86,8 +112,10 @@ function buildNew(e) {
             div.classList.add('unselectable')
 
             container.appendChild(div);
+            difSizes--;
         }
     }
+    squares = document.querySelectorAll('.grid-square')
     setNewSize(newSize);
 }
 
@@ -95,5 +123,6 @@ function setNewSize(newSize) {
     newSize = 38 / newSize;
     squares.forEach((square) => {
         square.style.width = `${newSize}rem`;
+        square.style.height = `${newSize}rem`;
     });
 }
