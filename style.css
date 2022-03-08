@@ -4,17 +4,19 @@ body {
 }
 
 .grid-square {
-    width: 2.375rem;
-    height: 2.375rem;
+    border: 1px;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
     width: 38rem;
-    border: solid 2px;
-    margin-left: 100px;
+    height: 38rem;
     background-color: white;
+}
+
+#container-border {
+    border: solid 2px;
 }
 
 *.unselectable {
@@ -53,4 +55,8 @@ body {
 .clear-button:active {
 	position:relative;
 	top:1px;
+}
+
+.range-sel {
+    margin-top: 2rem;
 }

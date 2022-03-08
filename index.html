@@ -13,13 +13,24 @@
     <div class="content">
         <div class="left-controls">
             <input type="color" class="paint-color" value="#000000">
+            <input type="color" class="grid-color">
         </div>
-        <div class="container">
+        <div id="container-border">
+            <div class="container">
         
+            </div>
         </div>
         <div class="right-controls">
             <div class="clear-button">Clear</div><br>
-            <input type="range">
+            <input class="range-sel" type="range" list="rango" min="1" max="64">
+            <datalist id="rango">
+                <option value="16">
+                <option value="28">
+                <option value="40">
+                <option value="52">
+                <option value="64">
+            </datalist>
+            <div>16    32   64</div>
         </div>
     </div>
 </body>
