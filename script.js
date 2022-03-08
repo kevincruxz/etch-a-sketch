@@ -1,10 +1,13 @@
 const container = document.querySelector('.container');
 const clear = document.querySelector('.clear-button'); 
 const sizeRange = document.querySelector('.range-sel')
-let squareColor = "#000000", gridColor = "#FFFFFF", size = 16, eraser = false;
+let squareColor = "#000000", gridColor = "#FFFFFF", size = 16, eraser = false, rainbow = false;
 createDivs();
 initialColor();
+const eraserButton = document.querySelector('.eraser');
 initialEraser();
+const rainbowButton = document.querySelector('.rainbow');
+initialRainbow();
 let squares = document.querySelectorAll('.grid-square')
 
 function createDivs() {
@@ -20,16 +23,33 @@ function createDivs() {
 }
 
 function initialEraser() {
-    const eraserButton = document.querySelector('.eraser');
-    eraserButton.addEventListener('click', function(e) {
-        if (eraser === true) {
-            eraser = false;
-            eraserButton.textContent = "Eraser"
-        } else {
-            eraser = true;
-            eraserButton.textContent = "Return to paint"
-        }
-    });
+    eraserButton.addEventListener('click', eraserActive);
+}
+
+function eraserActive() {
+    if (eraser === true) {
+        eraser = false;
+        eraserButton.textContent = "Eraser"
+    } else {
+        eraser = true;
+        eraserButton.textContent = "Return to paint"
+        if (rainbow === true) rainActive();
+    }
+}
+
+function initialRainbow() {
+    rainbowButton.addEventListener('click', rainActive);
+}
+
+function rainActive() {
+    if (rainbow === true) {
+        rainbow = false;
+        rainbowButton.textContent = "Rainbow"
+    } else {
+        rainbow = true;
+        rainbowButton.textContent = "Return to paint"
+        if (eraser === true) eraserActive();
+    }
 }
 
 function initialColor() {
@@ -73,6 +93,12 @@ function changeColor(e) {
     if (eraser === true) {
         e.target.style.background = "";
         container.style.background = gridColor;
+    } else if (rainbow === true) {
+        let red = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+        let blue = Math.floor(Math.random() * 255);
+
+        e.target.style.background = `rgb(${red},${green},${blue})`
     } else {
         e.target.style.background = squareColor;
         container.style.background = gridColor;
