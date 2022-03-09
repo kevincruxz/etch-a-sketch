@@ -6,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hubballi&display=swap" rel="stylesheet">  
     <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Etch - a - Sketch</h1>
     <div class="content">
         <div class="left-controls">
-            <input type="color" class="paint-color" value="#000000">
-            <input type="color" class="grid-color">
             <div class="eraser buttons">Eraser</div>
             <div class="rainbow buttons">Rainbow</div>
+            <div class="color-changers">
+                <div>
+                    <div class="color-selector">
+                        <input type="color" class="paint-color" value="#000000">
+                    </div>
+                    Paint Color
+                </div>
+                <div>
+                    <div class="color-selector">
+                        <input type="color" class="grid-color" value="#FFFFFF">
+                    </div>
+                    Grid Color
+                </div>
+            </div>
         </div>
         <div id="container-border">
             <div class="container">
@@ -28,5 +43,6 @@
             <div>16    32   64</div>
         </div>
     </div>
+    <footer>Copyright. Kevin Cruz 2022.</footer>
 </body>
 </html>

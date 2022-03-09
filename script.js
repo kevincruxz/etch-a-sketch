@@ -11,7 +11,7 @@ initialRainbow();
 let squares = document.querySelectorAll('.grid-square')
 
 function createDivs() {
-    let width = 38 / size;
+    let width = 36 / size;
     for (let i = 0; i < (size * size) ; i++) {
         const div = document.createElement('div');
         div.classList.add('grid-square');
@@ -61,8 +61,7 @@ function initialColor() {
 
     squaresColorPicker.addEventListener('input', changeSquareColor);
     gridColorPicker.addEventListener('input', changeGridColor);
-    squaresColorPicker.select();
-    gridColorPicker.select();
+    
 }
 
 function changeSquareColor(e) {
@@ -71,7 +70,7 @@ function changeSquareColor(e) {
         if (square.style.background) {
             square.style.background = squareColor;
         }
-    })
+    });
 }
 
 function changeGridColor(e) {
@@ -146,7 +145,7 @@ function buildNew(e) {
 }
 
 function setNewSize(newSize) {
-    newSize = 38 / newSize;
+    newSize = 36 / newSize;
     squares.forEach((square) => {
         square.style.width = `${newSize}rem`;
         square.style.height = `${newSize}rem`;

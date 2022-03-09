@@ -1,19 +1,26 @@
 body {
     text-align: center;
     background-color: #9BE0F1;
+	font-family: 'Hubballi', cursive;
 }
 
-/*
-.grid-square {
-
+.grid-square:hover {
+	background-color: rgb(217, 196, 242);
 }
-*/
+
+.left-controls {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+}
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 38rem;
-    height: 38rem;
+    width: 36rem;
+    height: 36rem;
     background-color: white;
 }
 
@@ -61,4 +68,38 @@ body {
 
 .range-sel {
     margin-top: 2rem;
+}
+
+.color-selector {
+	display: flex;
+	width: 50px;
+	height: 50px;
+	border: 1px solid;
+	box-shadow: 3px 4px 0px 0px #363c42;
+	background-color: rgb(0, 0, 0);
+	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+	transition: 0.5s;
+}
+
+.color-selector:hover {
+	transform: scale(1.1);
+	box-shadow: 6px 8px 0px 0px #1564ad;
+	margin: 0px 10px 10px 10px;
+}
+
+.paint-color, .grid-color {
+	width: 50px;
+	height: 50px;
+	margin-bottom: 0;
+	border: 0;
+	box-sizing: content-box;
+	background-color: rgb(0, 0, 0);
+}
+
+.color-changers {
+	display: flex;
+	gap: 30px;
+	margin-top: 25px;
 }
