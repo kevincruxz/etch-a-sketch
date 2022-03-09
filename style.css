@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: #9BE0F1;
+    background-color: #5bb7ce;
 	font-family: 'Hubballi', cursive;
 }
 
@@ -56,7 +56,7 @@ body {
 	padding:15px 30px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
-	transition: 1s;
+	transition: 0.8s;
 }
 .buttons:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
@@ -80,7 +80,7 @@ body {
 }
 
 .range-sel {
-    margin-top: 2rem;
+    width: 150px;
 }
 
 .color-selector {
@@ -115,4 +115,28 @@ body {
 	display: flex;
 	gap: 30px;
 	margin-top: 25px;
+}
+
+.range-description {
+	display: flex;
+	gap: 13px;
+	justify-content: center;
+	margin-left: 5px;
+}
+
+.right-controls {
+	display: flex;
+	flex-direction: column;
+	gap: 25px;
+	justify-content: space-around;
+	margin-left: 15px;
+}
+
+h1 {
+	font-size: 50px;
+	margin: 20px;
+}
+
+.undline {
+	text-decoration: underline overline;
 }

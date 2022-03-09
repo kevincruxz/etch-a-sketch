@@ -12,7 +12,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Etch - a - Sketch</h1>
+    <h1><span class="undline">Etch</span> - <span class="undline">a</span> - <span class="undline">Sketch</span></h1>
     <div class="content">
         <div class="left-controls">
             <div class="eraser buttons">Eraser</div>
@@ -38,11 +38,22 @@
             </div>
         </div>
         <div class="right-controls">
-            <div class="clear-button buttons">Clear</div><br>
-            <input class="range-sel" type="range" min="1" max="64" autocomplete="off" step="1" value="16">
-            <div>16    32   64</div>
+            <div class="clear-button buttons">Clear</div>
+            <div class="range">
+                <div style="font-size: 25px">Pixel Selector</div>
+                <input list="lista" class="range-sel" type="range" min="1" max="100" autocomplete="off" step="1" value="25">
+                <datalist id="lista">
+                    <option value="1"></option>
+                    <option value="25"></option>
+                    <option value="50"></option>
+                    <option value="75"></option>
+                    <option value="100"></option>
+                </datalist>
+                <p id="size-show" style="font-size: 16.5px;">25 x 25</p>
+             <!-- <div class="range-description"> <span>1</span> <span>25</span> <span>50</span> <span>75</span> <span>100</span> </div> -->
+            </div>
         </div>
     </div>
-    <footer>Copyright. Kevin Cruz 2022.</footer>
+    <footer><br>Copyright. Kevin Cruz 2022.</footer>
 </body>
 </html>

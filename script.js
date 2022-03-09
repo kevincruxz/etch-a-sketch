@@ -1,7 +1,7 @@
 const container = document.querySelector('.container');
 const clear = document.querySelector('.clear-button'); 
 const sizeRange = document.querySelector('.range-sel')
-let squareColor = "#000000", gridColor = "#FFFFFF", size = 16, eraser = false, rainbow = false;
+let squareColor = "#000000", gridColor = "#FFFFFF", size = 25, eraser = false, rainbow = false;
 createDivs();
 initialColor();
 const eraserButton = document.querySelector('.eraser');
@@ -33,7 +33,7 @@ function eraserActive() {
         eraserButton.classList.remove('active-mode');
     } else {
         eraser = true;
-        eraserButton.textContent = "Return to paint"
+        eraserButton.textContent = "Turn off Eraser"
         if (rainbow === true) rainActive();
         eraserButton.classList.add('active-mode');
     }
@@ -50,7 +50,7 @@ function rainActive() {
         rainbowButton.classList.remove('active-mode');
     } else {
         rainbow = true;
-        rainbowButton.textContent = "Return to paint"
+        rainbowButton.textContent = "Turn off Rainbow"
         if (eraser === true) eraserActive();
         rainbowButton.classList.add('active-mode');
     }
@@ -121,9 +121,12 @@ function clearGrid() {
 sizeRange.addEventListener('input', buildNew) 
 
 function buildNew(e) {
+    let announcer = document.getElementById('size-show');
     clearGrid()
+
     let newSizeString = e.target.value;
     let newSize = parseInt(newSizeString, 10);
+    announcer.textContent = `${newSize} x ${newSize}`
     let difSizes = newSize**2 - size**2;
     size = newSize;
 
