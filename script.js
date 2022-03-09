@@ -30,10 +30,12 @@ function eraserActive() {
     if (eraser === true) {
         eraser = false;
         eraserButton.textContent = "Eraser"
+        eraserButton.classList.remove('active-mode');
     } else {
         eraser = true;
         eraserButton.textContent = "Return to paint"
         if (rainbow === true) rainActive();
+        eraserButton.classList.add('active-mode');
     }
 }
 
@@ -45,10 +47,12 @@ function rainActive() {
     if (rainbow === true) {
         rainbow = false;
         rainbowButton.textContent = "Rainbow"
+        rainbowButton.classList.remove('active-mode');
     } else {
         rainbow = true;
         rainbowButton.textContent = "Return to paint"
         if (eraser === true) eraserActive();
+        rainbowButton.classList.add('active-mode');
     }
 }
 

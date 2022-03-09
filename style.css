@@ -53,9 +53,10 @@ body {
 	font-family:Arial;
 	font-size:17px;
 	font-weight:bold;
-	padding:15px 56px;
+	padding:15px 30px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #528ecc;
+	transition: 1s;
 }
 .buttons:hover {
 	background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
@@ -64,6 +65,18 @@ body {
 .buttons:active {
 	position:relative;
 	top:1px;
+}
+
+.active-mode {
+	padding: 40px 20px;
+	border: 1px solid gold;
+	box-shadow: 6px 8px 0px 0px gold;
+	background-color: #5E4B4D;
+	background:linear-gradient(to bottom, #5E4B4D 5%, #378de5 100%);
+}
+
+.active-mode:hover {
+	background:linear-gradient(to bottom, #5E4B4D 5%, #378de5 100%);
 }
 
 .range-sel {
